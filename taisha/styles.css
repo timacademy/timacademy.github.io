@@ -1,0 +1,1820 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&family=Orbitron:wght@400;700;900&family=Dancing+Script:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #333;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    text-size-adjust: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    max-width: 100vw;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22.5px 45px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.title {
+    font-family: 'Ma Shan Zheng', serif;
+    font-size: 47.25px;
+    color: #4a54d1;
+    font-weight: 700;
+}
+
+.controls {
+    display: flex;
+    gap: 25.5px;
+    align-items: center;
+}
+
+.btn {
+    background: #4a54d1;
+    color: white;
+    border: none;
+    padding: 8.25px 17.25px;
+    border-radius: 21px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6.75px;
+}
+
+.btn:hover {
+    background: #3a44c1;
+    transform: translateY(-3.75px);
+    box-shadow: 0 8.25px 25.5px rgba(74, 84, 209, 0.3);
+}
+
+.slide-counter {
+    background: rgba(74, 84, 209, 0.1);
+    padding: 13.5px 27px;
+    border-radius: 33.75px;
+    font-weight: 500;
+    color: #4a54d1;
+    order: 1;
+}
+
+#nextBtn {
+    order: 2;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.slide-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 67.5px;
+    min-width: 0;
+}
+
+.slide {
+    background: white;
+    border-radius: 33.75px;
+    padding: 101.25px;
+    max-width: 1518.75px;
+    width: 100%;
+    min-height: 843.75px;
+    box-shadow: 0 33.75px 101.25px rgba(0,0,0,0.1);
+    display: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8.25px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.slide-icon {
+    font-size: 135px;
+    margin-bottom: 51px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.slide h1 {
+    font-family: 'Ma Shan Zheng', serif;
+    font-size: 81px;
+    color: #4a54d1;
+    margin-bottom: 33.75px;
+    text-shadow: 3.75px 3.75px 6.75px rgba(0,0,0,0.1);
+}
+
+.slide h2 {
+    font-family: 'Zhi Mang Xing', serif;
+    font-size: 60.75px;
+    color: #667eea;
+    margin-bottom: 42px;
+    font-weight: 400;
+}
+
+.slide h3 {
+    font-size: 40.5px;
+    color: #764ba2;
+    margin-bottom: 33.75px;
+    font-weight: 600;
+}
+
+.slide p {
+    font-size: 30.75px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 25.5px;
+    max-width: 1181.25px;
+}
+
+.highlight {
+    background: linear-gradient(135deg, #667eea20, #764ba220);
+    padding: 5.25px 13.5px;
+    border-radius: 8.25px;
+    font-weight: 600;
+    color: #4a54d1;
+}
+
+.emphasis {
+    font-size: 47.25px;
+    font-weight: 700;
+    color: #764ba2;
+    text-shadow: 1.5px 1.5px 5.25px rgba(0,0,0,0.1);
+}
+
+.script-area {
+    background: rgba(255, 255, 255, 0.95);
+    border-left: 5.25px solid #4a54d1;
+    padding: 33.75px;
+    width: 675px;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+
+.script-content {
+    font-size: 24px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.script-title {
+    font-weight: 700;
+    color: #4a54d1;
+    margin-bottom: 17.25px;
+    display: flex;
+    align-items: center;
+    gap: 17.25px;
+}
+
+
+.quote {
+    font-style: italic;
+    font-size: 33.75px;
+    color: #764ba2;
+    border-left: 6.75px solid #667eea;
+    padding-left: 33.75px;
+    margin: 33.75px 0;
+    background: rgba(102, 126, 234, 0.05);
+    padding: 33.75px;
+    border-radius: 17.25px;
+}
+
+.key-points {
+    text-align: left;
+    max-width: 1012.5px;
+}
+
+.key-points ul {
+    list-style: none;
+    padding: 0;
+}
+
+.key-points li {
+    margin: 25.5px 0;
+    padding: 25.5px 33.75px;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 17.25px;
+    border-left: 6.75px solid #667eea;
+    font-size: 27px;
+    position: relative;
+}
+
+.key-points li::before {
+    content: '✦';
+    color: #667eea;
+    font-weight: bold;
+    position: absolute;
+    left: -3.75px;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(84.75px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide.active {
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Mobile First - Base styles for mobile devices */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+        overflow-y: auto;
+        position: relative;
+        -webkit-text-size-adjust: none;
+        -moz-text-size-adjust: none;
+        text-size-adjust: none;
+    }
+
+    .container {
+        height: auto;
+        overflow: visible;
+    }
+
+    .header {
+        padding: 11.25px 17.25px;
+        flex-wrap: wrap;
+        gap: 11.25px;
+    }
+
+    .title {
+        font-size: 22.5px;
+        order: 1;
+        flex: 1;
+        text-align: left;
+    }
+
+    .controls {
+        order: 2;
+        width: 100%;
+        justify-content: space-between;
+        gap: 9px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        padding: 9px 12px;
+        font-size: 10.5px;
+        min-height: 33px;
+        border-radius: 16.5px;
+    }
+
+    .slide-counter {
+        padding: 6px 9px;
+        font-size: 10.5px;
+        border-radius: 15px;
+    }
+
+    .slide-area {
+        padding: 22.5px 17.25px;
+    }
+
+    .slide {
+        padding: 33.75px 22.5px;
+        border-radius: 17.25px;
+        min-height: auto;
+    }
+
+    .slide-icon {
+        font-size: 67.5px;
+        margin-bottom: 22.5px;
+    }
+
+    .slide h1 {
+        font-size: 31.5px;
+        margin-bottom: 17.25px;
+    }
+
+    .slide h2 {
+        font-size: 24.75px;
+        margin-bottom: 17.25px;
+    }
+
+    .slide h3 {
+        font-size: 20.25px;
+        margin-bottom: 13.5px;
+    }
+
+    .slide p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 13.5px;
+    }
+
+    .emphasis {
+        font-size: 22.5px;
+    }
+
+    .quote {
+        font-size: 20.25px;
+        padding: 17.25px;
+        margin: 17.25px 0;
+        border-radius: 9px;
+    }
+
+    .key-points li {
+        margin: 13.5px 0;
+        padding: 17.25px 22.5px;
+        font-size: 18px;
+        border-radius: 11.25px;
+    }
+
+    .script-area {
+        width: 100%;
+        border-left: none;
+        border-top: 3.75px solid #4a54d1;
+        padding: 17.25px;
+        height: auto;
+    }
+
+    .script-content {
+        font-size: 18px;
+        line-height: 1.5;
+		margin-bottom: 100px;
+    }
+
+    .script-title {
+        font-size: 18px;
+        margin-bottom: 11.25px;
+        gap: 11.25px;
+    }
+
+    .main-content {
+        flex-direction: column;
+        flex: none;
+        height: auto;
+        min-height: 100vh;
+    }
+}
+
+/* Small tablets and large phones */
+@media (min-width: 481px) and (max-width: 768px) {
+    .header {
+        padding: 17.25px 22.5px;
+        flex-wrap: wrap;
+        gap: 17.25px;
+    }
+
+    .title {
+        font-size: 31.5px;
+    }
+
+    .btn {
+        padding: 7.5px 13.5px;
+        font-size: 11.25px;
+        min-height: 36px;
+    }
+
+    .slide-area {
+        padding: 33.75px 22.5px;
+    }
+
+    .slide {
+        padding: 56.25px 33.75px;
+        border-radius: 22.5px;
+    }
+
+    .slide-icon {
+        font-size: 90px;
+        margin-bottom: 28.5px;
+    }
+
+    .slide h1 {
+        font-size: 40.5px;
+        margin-bottom: 22.5px;
+    }
+
+    .slide h2 {
+        font-size: 33.75px;
+        margin-bottom: 22.5px;
+    }
+
+    .slide h3 {
+        font-size: 27px;
+        margin-bottom: 18px;
+    }
+
+    .slide p {
+        font-size: 20.25px;
+        line-height: 1.7;
+        margin-bottom: 18px;
+    }
+
+    .emphasis {
+        font-size: 27px;
+    }
+
+    .quote {
+        font-size: 22.5px;
+        padding: 22.5px;
+        margin: 22.5px 0;
+    }
+
+    .key-points li {
+        margin: 18px 0;
+        padding: 20.25px 28.5px;
+        font-size: 20.25px;
+    }
+
+    .script-area {
+        width: 100%;
+        border-left: none;
+        border-top: 4.5px solid #4a54d1;
+        padding: 22.5px;
+        height: auto;
+    }
+
+    .script-content {
+        font-size: 20.25px;
+    }
+
+    .main-content {
+        flex-direction: column;
+        flex: none;
+        height: auto;
+        min-height: 100vh;
+    }
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .header {
+        padding: 20.25px 33.75px;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    .btn {
+        padding: 9px 18px;
+        font-size: 12.75px;
+    }
+
+    .slide-area {
+        padding: 45px 28.5px;
+    }
+
+    .slide {
+        padding: 67.5px 45px;
+        border-radius: 28.5px;
+    }
+
+    .slide-icon {
+        font-size: 101.25px;
+        margin-bottom: 33.75px;
+    }
+
+    .slide h1 {
+        font-size: 54px;
+        margin-bottom: 24.75px;
+    }
+
+    .slide h2 {
+        font-size: 40.5px;
+        margin-bottom: 28.5px;
+    }
+
+    .slide h3 {
+        font-size: 31.5px;
+        margin-bottom: 22.5px;
+    }
+
+    .slide p {
+        font-size: 22.5px;
+        line-height: 1.7;
+        margin-bottom: 20.25px;
+    }
+
+    .emphasis {
+        font-size: 31.5px;
+    }
+
+    .quote {
+        font-size: 24.75px;
+        padding: 28.5px;
+        margin: 28.5px 0;
+    }
+
+    .key-points li {
+        margin: 20.25px 0;
+        padding: 22.5px 31.5px;
+        font-size: 22.5px;
+    }
+
+    .script-area {
+        width: 393.75px;
+        padding: 28.5px;
+    }
+
+    .script-content {
+        font-size: 21.75px;
+    }
+
+    .main-content {
+        flex-direction: row;
+    }
+}
+
+/* Small desktops */
+@media (min-width: 1025px) and (max-width: 1366px) {
+    .header {
+        padding: 22.5px 39.75px;
+    }
+
+    .title {
+        font-size: 40.5px;
+    }
+
+    .slide-area {
+        padding: 56.25px 39.75px;
+    }
+
+    .slide {
+        padding: 78.75px 56.25px;
+    }
+
+    .slide-icon {
+        font-size: 112.5px;
+        margin-bottom: 39.75px;
+    }
+
+    .slide h1 {
+        font-size: 65.25px;
+        margin-bottom: 28.5px;
+    }
+
+    .slide h2 {
+        font-size: 49.5px;
+        margin-bottom: 33.75px;
+    }
+
+    .slide h3 {
+        font-size: 33.75px;
+        margin-bottom: 27px;
+    }
+
+    .slide p {
+        font-size: 24.75px;
+        line-height: 1.75;
+        margin-bottom: 22.5px;
+    }
+
+    .emphasis {
+        font-size: 36px;
+    }
+
+    .quote {
+        font-size: 27px;
+        padding: 28.5px;
+        margin: 28.5px 0;
+    }
+
+    .key-points li {
+        margin: 22.5px 0;
+        padding: 22.5px 31.5px;
+        font-size: 24.75px;
+    }
+
+    .script-area {
+        width: 450px;
+        padding: 31.5px;
+    }
+
+    .script-content {
+        font-size: 22.5px;
+    }
+}
+
+/* Large desktops */
+@media (min-width: 1367px) and (max-width: 1536px) {
+    .script-area {
+        width: 506.25px;
+    }
+}
+
+/* Extra large desktops */
+@media (min-width: 1537px) {
+    .script-area {
+        width: 675px;
+    }
+}
+
+/* Landscape orientation adjustments for mobile/tablet */
+@media (max-width: 1024px) and (orientation: landscape) {
+    .slide-area {
+        padding: 22.5px 17.25px;
+    }
+
+    .slide {
+        padding: 33.75px 28.5px;
+        min-height: auto;
+    }
+
+    .slide-icon {
+        font-size: 56.25px;
+        margin-bottom: 17.25px;
+    }
+
+    .slide h1 {
+        font-size: 36px;
+        margin-bottom: 17.25px;
+    }
+
+    .slide h2 {
+        font-size: 27px;
+        margin-bottom: 13.5px;
+    }
+
+    .slide p {
+        font-size: 18px;
+        margin-bottom: 13.5px;
+    }
+
+    .script-area {
+        height: auto;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .btn {
+        border: 0.5625px solid rgba(255,255,255,0.3);
+    }
+}
+
+/* Tim 学院 Logo */
+.tim-logo {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+    padding: 10px 13px;
+    border-radius: 13px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    animation: logoFloat 3s ease-in-out infinite alternate;
+    text-decoration: none;
+}
+
+.tim-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25), 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes logoFloat {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-6px);
+    }
+}
+
+.logo-icon {
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #4a54d1 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(102, 126, 234, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-icon::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+    transform: rotate(45deg);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    50% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.logo-tim {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #4a54d1 0%, #667eea 50%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.logo-academy {
+    font-family: 'Ma Shan Zheng', serif;
+    font-size: 16px;
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0.5px 0.5px 1.5px rgba(0, 0, 0, 0.1);
+    font-weight: 400;
+}
+
+/* Mobile responsive for logo */
+@media (max-width: 480px) {
+    .tim-logo {
+        bottom: 15px;
+        left: 15px;
+        padding: 8px 9px;
+        border-radius: 10px;
+        gap: 5px;
+    }
+
+    .logo-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 9px;
+    }
+
+    .logo-tim {
+        font-size: 7.5px;
+        letter-spacing: 0.5px;
+    }
+
+    .logo-academy {
+        font-size: 9px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .tim-logo {
+        bottom: 20px;
+        left: 20px;
+        padding: 9px 11px;
+    }
+
+    .logo-icon {
+        width: 23px;
+        height: 23px;
+        font-size: 10px;
+    }
+
+    .logo-tim {
+        font-size: 12px;
+        letter-spacing: 0.75px;
+    }
+
+    .logo-academy {
+        font-size: 13px;
+    }
+}
+
+/* =======================================================
+   INDEX.HTML STYLES - Scoped to .homepage only
+   ======================================================= */
+
+.homepage .header {
+    backdrop-filter: blur(10px);
+}
+
+.homepage .title {
+    display: flex;
+    align-items: center;
+    gap: 17.25px;
+}
+
+.homepage .navigation {
+    display: none;
+}
+
+.homepage .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 67.5px;
+    min-width: 0;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+
+.homepage .hero-section {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-radius: 33.75px;
+    padding: 30px 101.25px 101.25px 101.25px;
+    max-width: 1800px;
+    width: 100%;
+    box-shadow: 0 33.75px 101.25px rgba(0,0,0,0.15), 0 0 0 1px rgba(255, 255, 255, 0.2);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 67.5px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8.25px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.homepage .hero-icon {
+    font-size: 135px;
+    margin-bottom: 5px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.homepage .hero-title {
+    font-family: 'Ma Shan Zheng', serif;
+    font-size: 96px;
+    color: #4a54d1;
+    margin-bottom: 33.75px;
+    text-shadow: 3.75px 3.75px 6.75px rgba(0,0,0,0.1);
+}
+
+.homepage .hero-subtitle {
+    font-family: 'Zhi Mang Xing', serif;
+    font-size: 60.75px;
+    color: #667eea;
+    margin-bottom: 51px;
+    font-weight: 400;
+}
+
+.homepage .hero-description {
+    font-size: 30.75px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 33.75px;
+    max-width: 1350px;
+}
+
+.homepage .hero-quote {
+    font-style: italic;
+    font-size: 40.5px;
+    color: #764ba2;
+    border-left: 6.75px solid #667eea;
+    padding-left: 33.75px;
+    margin: 51px 0;
+    background: rgba(102, 126, 234, 0.05);
+    padding: 33.75px;
+    border-radius: 17.25px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+}
+
+.homepage .toc-section {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-radius: 33.75px;
+    padding: 67.5px 101.25px;
+    max-width: 1800px;
+    width: 100%;
+    box-shadow: 0 33.75px 101.25px rgba(0,0,0,0.15), 0 0 0 1px rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.homepage .toc-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8.25px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.homepage .toc-title {
+    font-family: 'Ma Shan Zheng', serif;
+    font-size: 54px;
+    color: #4a54d1;
+    margin-bottom: 51px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25.5px;
+}
+
+.homepage .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 51px;
+    align-items: start;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 1200px) {
+    .homepage .toc-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 900px) {
+    .homepage .toc-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .homepage .toc-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+.homepage .chapter-group {
+    background: rgba(102, 126, 234, 0.08);
+    border-radius: 17.25px;
+    padding: 33.75px;
+    border-left: 6.75px solid #667eea;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.homepage .chapter-group:hover {
+    background: rgba(102, 126, 234, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+    border-color: rgba(102, 126, 234, 0.2);
+}
+
+.homepage .group-title {
+    font-size: 27px;
+    color: #4a54d1;
+    margin-bottom: 25.5px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 17.25px;
+}
+
+.homepage .chapter-list {
+    list-style: none;
+    padding: 0;
+}
+
+.homepage .chapter-item {
+    margin: 17.25px 0;
+    display: flex;
+    align-items: center;
+    gap: 13.5px;
+}
+
+/* Mobile: More compact chapter items */
+@media (max-width: 480px) {
+    .homepage .chapter-item {
+        margin: 6px 0;
+        gap: 4px;
+    }
+    
+    .homepage .chapter-icon {
+        font-size: 11px;
+    }
+    
+    .homepage .chapter-title {
+        line-height: 1.2;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+}
+
+.homepage .chapter-link {
+    display: flex;
+    align-items: center;
+    gap: 13.5px;
+    padding: 13.5px 25.5px;
+    background: white;
+    border-radius: 17.25px;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    width: 100%;
+    border: 1.5px solid transparent;
+}
+
+.homepage .chapter-link:hover {
+    background: linear-gradient(135deg, #667eea15, #764ba215);
+    border-color: #667eea;
+    transform: translateX(6.75px) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .homepage .chapter-link:hover {
+        transform: none;
+    }
+    
+    .homepage .chapter-link:active {
+        background: linear-gradient(135deg, #667eea15, #764ba215);
+        transform: scale(0.98);
+    }
+}
+
+.homepage .chapter-number {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 6.75px 13.5px;
+    border-radius: 13.5px;
+    font-weight: 600;
+    min-width: 67.5px;
+    text-align: center;
+}
+
+.homepage .chapter-title {
+    flex: 1;
+    font-weight: 500;
+}
+
+.homepage .chapter-icon {
+    font-size: 20.25px;
+    color: #667eea;
+}
+
+.homepage .principles-section {
+    text-align: left;
+    margin-top: 51px;
+    padding: 51px;
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 25.5px;
+    border-left: 6.75px solid #4a54d1;
+}
+
+.homepage .principles-title {
+    font-family: 'Ma Shan Zheng', serif;
+    font-size: 40.5px;
+    color: #4a54d1;
+    margin-bottom: 33.75px;
+    text-align: center;
+}
+
+.homepage .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25.5px;
+}
+
+.homepage .principle-item {
+    background: white;
+    padding: 25.5px;
+    border-radius: 17.25px;
+    border-left: 4.5px solid #667eea;
+    font-size: 18px;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    gap: 17.25px;
+}
+
+.homepage .principle-icon {
+    font-size: 27px;
+    color: #667eea;
+    min-width: 40.5px;
+    text-align: center;
+}
+
+/* Tim 学院 Logo */
+.tim-logo {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+    padding: 10px 13px;
+    border-radius: 13px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    animation: logoFloat 3s ease-in-out infinite alternate;
+    text-decoration: none;
+}
+
+.tim-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25), 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes logoFloat {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-6px);
+    }
+}
+
+.logo-icon {
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #4a54d1 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(102, 126, 234, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-icon::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+    transform: rotate(45deg);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    50% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.logo-tim {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #4a54d1 0%, #667eea 50%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.logo-academy {
+    font-family: 'Ma Shan Zheng', serif;
+    font-size: 16px;
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0.5px 0.5px 1.5px rgba(0, 0, 0, 0.1);
+    font-weight: 400;
+}
+
+/* Extra small devices - phones in portrait */
+@media (max-width: 320px) {
+    .homepage .toc-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .homepage .chapter-group {
+        padding: 15px;
+    }
+    
+    .homepage .hero-section {
+        padding: 20px 15px;
+    }
+    
+    .homepage .toc-section {
+        padding: 20px 15px;
+    }
+    
+    .homepage .main-content {
+        padding: 15px 10px;
+    }
+    
+    .homepage .hero-title {
+        font-size: 36px;
+        line-height: 1.2;
+        word-break: keep-all;
+    }
+    
+    .homepage .hero-subtitle {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+    
+    .homepage .hero-description {
+        font-size: 12px;
+        line-height: 1;
+    }
+    
+    .homepage .hero-quote {
+        font-size: 16.5px;
+        line-height: 1.4;
+        padding: 15px;
+        margin: 10px 0;
+    }
+	
+    .script-content {
+        font-size: 18px;
+        line-height: 1.5;
+		margin-bottom: 100px;
+    }
+
+}
+
+/* Mobile First - Base styles for mobile devices */
+@media (max-width: 480px) {
+    .homepage .header {
+        display: none;
+    }
+
+    .homepage .main-content {
+        padding: 15px 10px;
+    }
+
+    .homepage .hero-section {
+        padding: 10px 22px 20px 22px;
+        margin-bottom: 20px;
+    }
+
+    .homepage .hero-title {
+        font-size: 112px;
+        margin-bottom: 25px;
+        line-height: 1.2;
+        word-break: keep-all;
+    }
+
+    .homepage .hero-subtitle {
+        font-size: 72px;
+        margin-bottom: 32px;
+        line-height: 1.3;
+    }
+
+    .homepage .hero-description {
+        font-size: 18px;
+        margin-bottom: 16px;
+        line-height: 1.2;
+    }
+
+    .homepage .hero-quote {
+        font-size: 48px;
+        padding: 20px;
+        margin: 25px 0;
+        line-height: 1.4;
+    }
+
+    .homepage .toc-section {
+        padding: 25px 18px;
+    }
+
+    .homepage .toc-title {
+        font-size: 20px;
+        margin-bottom: 18px;
+        gap: 8px;
+    }
+
+    .homepage .toc-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .homepage .chapter-group {
+        padding: 15px;
+    }
+
+    .homepage .group-title {
+        font-size: 16px;
+        margin-bottom: 12px;
+        gap: 8px;
+    }
+
+    .homepage .chapter-link {
+        padding: 10px 12px;
+        font-size: 14px;
+        gap: 8px;
+        min-height: 48px;
+        align-items: center;
+    }
+
+    .homepage .chapter-number {
+        padding: 6px 10px;
+        min-width: 40px;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+
+    .homepage .principles-section {
+        padding: 25.5px;
+        margin-top: 25.5px;
+    }
+
+    .homepage .principles-title {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .homepage .principles-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .homepage .principle-item {
+        padding: 15px;
+        font-size: 14px;
+        gap: 12px;
+    }
+
+    .homepage .principle-icon {
+        font-size: 16px;
+        min-width: 32px;
+    }
+}
+
+/* Small to medium screens - force single column */
+@media (max-width: 768px) {
+    .homepage .toc-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+    
+    .homepage .chapter-group {
+        border-radius: 15px;
+        padding: 20px;
+    }
+    
+    .homepage .chapter-link {
+        border-radius: 12px;
+        transition: all 0.2s ease;
+    }
+}
+
+/* Small to Medium Mobile/Large Phones */
+@media (min-width: 481px) and (max-width: 768px) {
+    .homepage .header {
+        display: none;
+    }
+
+    .homepage .main-content {
+        padding: 30px 20px;
+    }
+
+    .homepage .hero-section {
+        padding: 15px 30px 45px 30px;
+        margin-bottom: 30px;
+    }
+
+    .homepage .hero-icon {
+        font-size: 55px;
+        margin-bottom: 8px;
+    }
+
+    .homepage .hero-title {
+        font-size: 42px;
+        margin-bottom: 18px;
+    }
+
+    .homepage .hero-subtitle {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .homepage .hero-description {
+        font-size: 12px;
+        margin-bottom: 18px;
+    }
+
+    .homepage .hero-quote {
+        font-size: 22px;
+        padding: 22px;
+        margin: 25px 0;
+    }
+
+    .homepage .toc-section {
+        padding: 30px 35px;
+    }
+
+    .homepage .toc-title {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    .homepage .toc-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .homepage .header {
+        display: none;
+    }
+
+    .homepage .main-content {
+        padding: 45px 33.75px;
+    }
+
+    .homepage .hero-section {
+        padding: 20px 45px 67.5px 45px;
+        margin-bottom: 45px;
+    }
+
+    .homepage .hero-icon {
+        font-size: 70px;
+        margin-bottom: 10px;
+    }
+
+    .homepage .hero-title {
+        font-size: 54px;
+        margin-bottom: 22.5px;
+    }
+
+    .homepage .hero-subtitle {
+        font-size: 40.5px;
+        margin-bottom: 33.75px;
+    }
+
+    .homepage .hero-description {
+        font-size: 22.5px;
+        margin-bottom: 22.5px;
+    }
+
+    .homepage .hero-quote {
+        font-size: 27px;
+        padding: 28.5px;
+        margin: 33.75px 0;
+    }
+
+    .homepage .toc-section {
+        padding: 45px 67.5px;
+    }
+
+    .homepage .toc-title {
+        font-size: 40.5px;
+        margin-bottom: 33.75px;
+    }
+
+    .homepage .toc-grid {
+        grid-template-columns: 1fr;
+        gap: 25.5px;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(22.5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced entrance animations */
+@keyframes staggerFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-section {
+    animation: staggerFadeInUp 0.8s ease-out;
+}
+
+.toc-section {
+    animation: staggerFadeInUp 1s ease-out 0.2s both;
+}
+
+.homepage .chapter-group {
+    animation: staggerFadeInUp 0.6s ease-out calc(var(--index) * 0.1s) both;
+}
+
+.homepage .chapter-group:nth-child(1) { --index: 1; }
+.homepage .chapter-group:nth-child(2) { --index: 2; }
+.homepage .chapter-group:nth-child(3) { --index: 3; }
+.homepage .chapter-group:nth-child(4) { --index: 4; }
+.homepage .chapter-group:nth-child(5) { --index: 5; }
+.homepage .chapter-group:nth-child(6) { --index: 6; }
+.homepage .chapter-group:nth-child(7) { --index: 7; }
+
+/* Performance optimizations */
+.homepage .chapter-link,
+.homepage .chapter-group,
+.homepage .nav-btn,
+.mobile-menu-toggle {
+    will-change: transform;
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .homepage .chapter-group:hover {
+        transform: none;
+    }
+    
+    .homepage .chapter-link:hover {
+        transform: none;
+    }
+}
+
+/* Enhanced mobile touch targets */
+@media (max-width: 768px) {
+    .homepage .chapter-link {
+        min-height: 52px !important;
+        touch-action: manipulation;
+    }
+    
+    .nav-link {
+        min-height: 52px !important;
+        touch-action: manipulation;
+    }
+    
+    .mobile-menu-toggle {
+        min-width: 52px !important;
+        min-height: 52px !important;
+        touch-action: manipulation;
+    }
+}
+
+/* Fix text selection and readability on mobile */
+@media (max-width: 480px) {
+    * {
+        -webkit-user-select: text;
+        user-select: text;
+    }
+    
+    .homepage .hero-title,
+    .homepage .hero-subtitle,
+    .homepage .hero-description,
+    .homepage .hero-quote {
+        text-rendering: optimizeLegibility;
+        -webkit-text-size-adjust: none;
+        -moz-text-size-adjust: none;
+        text-size-adjust: none;
+    }
+    
+    /* Prevent zoom on input focus */
+    input[type="text"],
+    input[type="email"],
+    input[type="search"],
+    textarea,
+    select {
+        font-size: 16px !important;
+    }
+    
+    /* Balanced hero section font sizes for mobile */
+    .hero-title, .homepage .hero-title {
+        font-size: 42px !important;
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+    
+    .hero-subtitle, .homepage .hero-subtitle {
+        font-size: 27px !important;
+    }
+    
+    .hero-description, .homepage .hero-description {
+        font-size: 24px !important;
+    }
+    
+    .hero-quote, .homepage .hero-quote {
+        font-size: 18px !important;
+        padding: 15px !important;
+        line-height: 1.4 !important;
+    }
+    
+    .hero-icon, .homepage .hero-icon {
+        font-size: 67.5px !important;
+    }
+}
+
+/* Override logo icon to use book icon from index.html */
+.logo-icon i::before {
+    content: "\f518" !important;
+}
+
+/* =======================================================
+   PAGE TITLE STYLES (flows with the page)
+   ======================================================= */
+
+.page-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(102, 126, 234, 0.2);
+}
+
+.page-title-text {
+    font-family: 'Ma Shan Zheng', serif;
+    font-size: 42px;
+    margin: 0;
+    background: linear-gradient(135deg, #4a54d1 0%, #667eea 50%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.page-title-icon {
+    font-size: 36px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: bookGlow 3s ease-in-out infinite;
+}
+
+@keyframes bookGlow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Mobile responsive for page title */
+@media (max-width: 768px) {
+    .page-title-text {
+        font-size: 32px;
+    }
+    
+    .page-title-icon {
+        font-size: 28px;
+    }
+    
+    .page-title {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title-text {
+        font-size: 36px;
+    }
+    
+    .page-title-icon {
+        font-size: 30px;
+    }
+    
+    .page-title {
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+        gap: 8px;
+    }
+}
+
+/* Visitor Map Widget Mobile Styles */
+.visitor-map-widget {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 30px;
+}
+
+.visitor-map-widget img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 480px) {
+    .visitor-map-widget {
+        padding: 15px 10px;
+        margin-top: 20px;
+    }
+    
+    .visitor-map-widget img {
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .visitor-map-widget {
+        padding: 18px 15px;
+        margin-top: 25px;
+    }
+}
